@@ -26,7 +26,10 @@ import {WelldoneWallet} from "@welldone-studio/aptos-wallet-adapter";
 import {FewchaWallet} from "fewcha-plugin-wallet-adapter";
 import {MSafeWalletAdapter} from "@msafe/aptos-wallet-adapter";
 import {PetraWallet} from "petra-plugin-wallet-adapter";
-import {IdentityConnectWallet} from "@identity-connect/wallet-adapter-plugin";
+import {
+  IdentityConnectWallet,
+  IdentityConnectWalletConfig,
+} from "@identity-connect/wallet-adapter-plugin";
 
 const IdentityConnectId = "99d260d0-c69d-4c15-965f-f6f9b7b00102";
 const MSafeWallet = new MSafeWalletAdapter();
@@ -53,19 +56,22 @@ function walletsForNetwork(network: string) {
   if (network === NetworkName.Mainnet) {
     wallets.unshift(
       new IdentityConnectWallet(IdentityConnectId, {
-        networkName: NetworkName.Mainnet,
+        networkName:
+          NetworkName.Mainnet as unknown as IdentityConnectWalletConfig["networkName"],
       }),
     );
   } else if (network === NetworkName.Testnet) {
     wallets.unshift(
       new IdentityConnectWallet(IdentityConnectId, {
-        networkName: NetworkName.Testnet,
+        networkName:
+          NetworkName.Testnet as unknown as IdentityConnectWalletConfig["networkName"],
       }),
     );
   } else if (network === NetworkName.Devnet) {
     wallets.unshift(
       new IdentityConnectWallet(IdentityConnectId, {
-        networkName: NetworkName.Devnet,
+        networkName:
+          NetworkName.Devnet as unknown as IdentityConnectWalletConfig["networkName"],
       }),
     );
   }

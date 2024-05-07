@@ -11,6 +11,7 @@ export const networks = {
   devnet: devnetUrl,
   local: "https://aptos.devnet.m1.movementlabs.xyz",
   movement: "https://aptos.devnet.m1.movementlabs.xyz",
+  previewnet: "https://aptos.devnet.m1.movementlabs.xyz",
 };
 
 export type NetworkName = keyof typeof networks;
